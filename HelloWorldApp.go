@@ -29,7 +29,17 @@ func fileExists(filename string) bool {
 	_ = fileInfo
 	return true
 }
+func fileReadPermition(filename string) bool {
+	file, err := os.OpenFile(filename, os.O_RDONLY, 0666)
+	if err != nil {
+		if os.IsPermission(err) {
+			return false
+		}
+	}
+	_ = file
+	return true
+}
 func main() {
-	fmt.Println(fileExists(getArgument()))
+	fmt.Println(fileReadPermition(getArgument()))
 
 }
