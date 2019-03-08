@@ -26,7 +26,7 @@ func fileExists(filename string) bool {
 			return false
 		}
 	}
-	_ = fileInfo
+	_ = fileInfo //temporary
 	return true
 }
 func fileReadPermition(filename string) bool {
@@ -36,10 +36,10 @@ func fileReadPermition(filename string) bool {
 			return false
 		}
 	}
-	_ = file
+	_ = file //temporary
 	return true
 }
 func main() {
-	fmt.Println(fileReadPermition(getArgument()))
+	fmt.Println(fileReadPermition(getArgument())) //check file permition from argument
 
 }
